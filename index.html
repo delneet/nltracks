@@ -28,9 +28,9 @@
         onDeviceReady: function() {
           app.openMobile();
           
-          app.showAlert('message', 'title');
+          //app.showAlert('message', 'title');
                     
-          app.receivedEvent('deviceready');
+          //app.receivedEvent('deviceready');
         },
         // Update DOM on a Received Event
         receivedEvent: function(id) {
@@ -38,6 +38,11 @@
         },        
         
         openMobile: function() {
+          navigator.app.loadUrl("http://nltracks.nl/mobile");
+        },
+        
+        openExternal: function() {
+          window.plugins.childBrowser.onClose = this.onBrowserClosed;
           window.plugins.childBrowser.showWebPage('http://nltracks.nl/mobile', { 
             showLocationBar: false, 
             showAddress: false, 
@@ -51,6 +56,10 @@
           } else {
               alert(title ? (title + ": " + message) : message);
           }
+        },
+        
+        onBrowserClosed: function() {
+          navigator.app.exitApp();
         }
 
       };
