@@ -26,11 +26,11 @@
         // The scope of 'this' is the event. In order to call the 'receivedEvent'
         // function, we must explicity call 'app.receivedEvent(...);'
         onDeviceReady: function() {
-          window.plugins.childBrowser.showWebPage('http://nltracks.nl/mobile', { 
-            showLocationBar: false, 
-            showAddress: false, 
-            showNavigationBar: false         
-          });
+          //app.openMobile();
+          
+          app.showAlert('message', 'title');
+          
+          window.location = "http://nltracks.nl/mobile";
           
           app.receivedEvent('deviceready');
         },
@@ -39,6 +39,23 @@
           console.log('Received Event: ' + id);
         }
       };
+      
+      openMobile: function() {
+        window.plugins.childBrowser.showWebPage('http://nltracks.nl/mobile', { 
+            showLocationBar: false, 
+            showAddress: false, 
+            showNavigationBar: false         
+          });
+      };
+      
+      showAlert: function (message, title) {
+        if (navigator.notification) {
+            navigator.notification.alert(message, null, title, 'OK');
+        } else {
+            alert(title ? (title + ": " + message) : message);
+        }
+      };
+
     
       app.initialize();
       
