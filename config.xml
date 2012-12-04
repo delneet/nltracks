@@ -13,4 +13,7 @@
   <author href="http://sense-studios.com" email="support@sense-studios.com">
    Sense Studios 
   </author>
+  
+  <gap:plugin name="ChildBrowser" /> <!-- latest release -->
+  
 </widget>

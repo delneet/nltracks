@@ -1,5 +1,12 @@
 <!DOCTYPE html>
+  <head>
+    <script src="phonegap.js"></script>
+    <script src="childbrowser.js"></script>
+  </head>
   <body>
-    <p>Hello world</p>
+    <script>
+      window.plugins.childBrowser.showWebPage('http://nltracks.nl/mobile',
+                                        { showLocationBar: false, showAddress: false, showNavigationBar: false });
+    </script>
   </body>
 </html>
